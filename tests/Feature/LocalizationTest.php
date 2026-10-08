@@ -8,6 +8,7 @@ use Enadstack\Localization\Support\Locales;
 use Enadstack\Localization\Support\SharedProps;
 use Enadstack\Localization\Tests\TestCase;
 use Illuminate\Testing\TestResponse;
+use Inertia\OnceProp;
 use PHPUnit\Framework\Attributes\Test;
 
 class LocalizationTest extends TestCase
@@ -66,6 +67,15 @@ class LocalizationTest extends TestCase
         $this->assertSame('ar', $props['locale']);
         $this->assertSame('rtl', $props['dir']);
         $this->assertSame([['code' => 'en', 'label' => 'English'], ['code' => 'ar', 'label' => 'العربية']], $props['locales']);
+    }
+
+    #[Test]
+    public function translations_are_an_inertia_once_prop_keyed_by_locale(): void
+    {
+        $prop = $this->app->make(SharedProps::class)->toArray()['translations'];
+
+        $this->assertInstanceOf(OnceProp::class, $prop);
+        $this->assertSame('translations.ar', $prop->getKey());
     }
 
     #[Test]
