@@ -52,6 +52,13 @@ Inertia sorts its middleware right after the session, ahead of the web group. Th
 before Inertia builds its shared props, so `SetLocale` is prepended globally and the cookie is
 excluded from encryption.
 
+## Documentation
+
+- [Configuration](docs/configuration.md)
+- [Frontend integration](docs/frontend.md)
+- [Adding a language](docs/adding-a-language.md)
+- [Changelog](CHANGELOG.md)
+
 ## Tests
 
 ```bash
