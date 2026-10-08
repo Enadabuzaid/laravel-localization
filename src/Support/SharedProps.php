@@ -7,6 +7,7 @@ namespace Enadstack\Localization\Support;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Lang;
 use Inertia\Inertia;
+use Inertia\OnceProp;
 
 /**
  * The props every Inertia page needs to render in the active language.
@@ -64,7 +65,8 @@ final class SharedProps
     {
         $resolve = fn (): array => $this->translations($locale);
 
-        if (!class_exists(Inertia::class) || !method_exists(Inertia::class, 'once')) {
+        // OnceProp only exists in Inertia v3; older versions get a plain lazy prop.
+        if (!class_exists(OnceProp::class)) {
             return $resolve;
         }
 
