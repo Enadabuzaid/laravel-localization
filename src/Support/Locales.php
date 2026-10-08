@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Enadstack\Localization\Support;
 
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Support\Facades\App;
 
 /**
  * Read access to the configured locales.
@@ -37,6 +38,14 @@ final class Locales
     public function direction(string $code): string
     {
         return $this->all()[$code]['dir'] ?? 'ltr';
+    }
+
+    /**
+     * Text direction of the active locale, for the <html dir> attribute.
+     */
+    public function currentDirection(): string
+    {
+        return $this->direction(App::getLocale());
     }
 
     public function cookieName(): string

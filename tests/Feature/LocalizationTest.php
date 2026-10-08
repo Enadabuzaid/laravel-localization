@@ -84,6 +84,7 @@ class LocalizationTest extends TestCase
 
         $this->assertSame('rtl', $locales->direction('ar'));
         $this->assertSame('ltr', $locales->direction('unknown'));
+        $this->assertSame('rtl', $locales->currentDirection());
         $this->assertTrue($locales->isSupported('en'));
         $this->assertFalse($locales->isSupported(null));
     }
