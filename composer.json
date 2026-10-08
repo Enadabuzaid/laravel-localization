@@ -1,0 +1,57 @@
+{
+    "name": "enadstack/laravel-localization",
+    "description": "Cookie based multi-language (RTL aware) support for Laravel + Inertia apps: locale middleware, language switch route, shared Inertia props and ready en/ar lang files.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "localization", "i18n", "rtl", "arabic", "inertia", "enadstack"],
+    "authors": [
+        {
+            "name": "Enad Abu Zaid",
+            "email": "enad@enadstack.com",
+            "homepage": "https://enadstack.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "illuminate/translation": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "inertiajs/inertia-laravel": "^3.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "phpunit/phpunit": "^11.0|^12.0"
+    },
+    "suggest": {
+        "inertiajs/inertia-laravel": "Needed to share the locale, direction and translations with the React/Vue frontend (v3 uses once props)."
+    },
+    "autoload": {
+        "psr-4": {
+            "Enadstack\\Localization\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Enadstack\\Localization\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Enadstack\\Localization\\LocalizationServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
